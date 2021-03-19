@@ -9,3 +9,4 @@ matplotlib
 tensorflow-cpu
 yfinance
 h5py
+pyOpenSSL
