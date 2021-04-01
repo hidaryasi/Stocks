@@ -96,7 +96,7 @@ def stock_predict(stock, time_steps=3):
     st.header('{} Long Short Term Memory.'.format(stock.upper()))
     st.line_chart(valid[['Close','Predictions']])
     st.header("Model Metrics for Long Short Term Memory Neural Network.")
-    st.subheader("Root Means Squared Error.(Anytime the RMSE is around or less than 5")
+    st.subheader("Root Means Squared Error.(Anytime the RMSE is around or less than 5)")
     st.subheader(rmse)
 
 
