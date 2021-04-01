@@ -120,18 +120,18 @@ ticker_predict = st.sidebar.selectbox('What stock do you want to see in LSTM Neu
 ,'NAKD','NKLA','NNDM','NVDA','OCGN','OGI','ONTX','OPEN','OPK','OVID','PDD','PLUG','PTON','PYPL','QCOM','QTT','RETO','RIOT','SABR',
 'SDC','SHIP','SIRI','SLGG','SNDL','SNGX','SOLO','SRNE','TELL','TLRY','TNXP','TRCH','TSLA','TTOO','TXMD','UAL','VIAC','VISL','VRM',
 'VTRS','WKHS','ZNGA'))
-time_steps = st.sidebar.slider('Please,select a range of time step values for the LSTM model'.(Try optimizing the model!),1, 5, (2))
+time_steps = st.sidebar.slider('Please,select a range of time step values for the LSTM model.(Try optimizing the model!)',1, 5, (2))
 stock_predict(ticker_predict,time_steps)
 
 st.sidebar.image('logo2.png')
 st.sidebar.markdown(""" This Website was develop by :
 ----------------------------------
 Nur Hidayati Sihono-2017521460041 .created for Capstone Project Sichuan University,Bachelor Degree""")
-st.sidebar.markdown(""" This Project supervised by :
+st.sidebar.markdown(""" This Project Under supervised:
 ---------------------------------------
-Prof.Li Xuwei -College of Computer Science,Sichuan University""")
+Prof.Li Xuwei-College of Computer Science,Sichuan University""")
 
-new_projects = st.sidebar.text_input('What do you want to see in the future?')
+st.sidebar.text_input('What do you want to see in the future? feel free to contact us')
 st.sidebar.write("""
 CONTACT US
 ----------------------------------------
