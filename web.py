@@ -24,8 +24,12 @@ def main():
 
     stock_data = yf.Ticker(selected_stock)
     st.write( """**Shortname**:  """ + stock_data.info['shortName'])
+    st.write( """**Sector**:  """ + stock_data.info['sector'])
     st.write( """**Industry**:  """ + stock_data.info['industry'])
     st.write( """**Market Cap**:  """ + str(stock_data.info['marketCap']))
+    st.write( """**Currency**:  """ + stock_data.info['currency'])
+    st.write( """**Exchange time zone name**:  """ + stock_data.info['exchangeTimezoneName'])
+
 
 
     st.header("""Daily **Chart** for """ + selected_stock)
@@ -37,7 +41,7 @@ def main():
                 close=stock_df['Close'],
                 increasing_line_color = 'green' ,
                 decreasing_line_color = 'red')])
-    fig.update_layout(xaxis_rangeslider_visible=False, xaxis_title="Date",
+    fig.update_layout(xaxis_title="Date",
     yaxis_title="Price ($)",
     font=dict(
     family="Courier New, monospace",
@@ -57,8 +61,6 @@ def main():
     else:
         st.write(last_price)
 
-
-    #checkbox to display quarterly financials for the searched ticker
     st.sidebar.header("Stock Additional Information")
     st.sidebar.markdown("please choose your option")
     financials = st.sidebar.checkbox("Quarterly Financials")
@@ -70,7 +72,6 @@ def main():
         else:
             st.write(display_financials)
 
-    #checkbox to display list of institutional shareholders for searched ticker
     major_shareholders = st.sidebar.checkbox("Institutional Shareholders")
 
     if major_shareholders:
@@ -81,7 +82,6 @@ def main():
         else:
             st.write(display_shareholders)
 
-    #checkbox to display quarterly balance sheet for searched ticker
     balance_sheet = st.sidebar.checkbox("Quarterly Balance Sheet")
     if balance_sheet:
         st.subheader("""**Quarterly balance sheet** for """ + selected_stock)
@@ -91,7 +91,6 @@ def main():
         else:
             st.write(display_balancesheet)
 
-    #checkbox to display quarterly cashflow for searched ticker
     cashflow = st.sidebar.checkbox("Quarterly Cashflow")
     if cashflow:
         st.subheader("""**Quarterly cashflow** for """ + selected_stock)
@@ -100,7 +99,7 @@ def main():
             st.write("No data available at the moment")
         else:
             st.write(display_cashflow)
-  #checkbox to display list of analysts recommendation for searched ticker
+
     analyst_recommendation = st.sidebar.checkbox("Analysts Recommendation")
     if analyst_recommendation:
         st.subheader("""**Analysts recommendation** for """ + selected_stock)
@@ -121,7 +120,7 @@ ticker_predict = st.sidebar.selectbox('What stock do you want to see in LSTM Neu
 ,'NAKD','NKLA','NNDM','NVDA','OCGN','OGI','ONTX','OPEN','OPK','OVID','PDD','PLUG','PTON','PYPL','QCOM','QTT','RETO','RIOT','SABR',
 'SDC','SHIP','SIRI','SLGG','SNDL','SNGX','SOLO','SRNE','TELL','TLRY','TNXP','TRCH','TSLA','TTOO','TXMD','UAL','VIAC','VISL','VRM',
 'VTRS','WKHS','ZNGA'))
-time_steps = st.sidebar.slider('Please,select a range of time step values for the LSTM model',1, 5, (2))
+time_steps = st.sidebar.slider('Please,select a range of time step values for the LSTM model'.(Try optimizing the model!),1, 5, (2))
 stock_predict(ticker_predict,time_steps)
 
 st.sidebar.image('logo2.png')
@@ -132,7 +131,7 @@ st.sidebar.markdown(""" This Project supervised by :
 ---------------------------------------
 Prof.Li Xuwei -College of Computer Science,Sichuan University""")
 
-st.sidebar.markdown("""What do you want to see in the future? feel free to contact us""")
+new_projects = st.sidebar.text_input('What do you want to see in the future?')
 st.sidebar.write("""
 CONTACT US
 ----------------------------------------
